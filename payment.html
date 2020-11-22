@@ -1,0 +1,347 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <title>Select Device</title>
+</head>
+<body>
+    <!-- Header -->
+    <div id="v-container" >
+        <div class="container-fluid">
+            <div class="pl-5 pr-5 pb-5">
+                <div class="row p-4 m-0 align-items-center">
+                    <div class="col-md-3">
+                        <img src="./assets/svg/logo-dark.svg" alt="logo" style="width: 100px;" >
+                    </div>
+                    <div class="col-md-9 text-right">
+                        <button class="btn">
+                            <img src="./assets/svg/search.svg" alt="search">
+                        </button>
+                        <button class="btn">Repairs</button>
+                        <button class="btn">About us</button>
+                        <button class="btn">Partnership</button>
+                        <button class="btn">Location</button>
+                        <button class="btn">Support</button>
+                        <button class="btn">Contact Us</button>
+                        <button class="btn btn-primary pl-5 pr-5 pt-2 pb-2 border-radius">Log in</button>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        
+        <div class="row mx-0">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 px-0">
+                <div class="row mx-0">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2 px-0 position-relative" v-for="(s, i) in steps">
+                        <div class="w-100 position-absolute border-top-2 px-0 mx-0" style="top: 25%;"></div>
+                        <div class="text-center position-relative" style="z-index: 100;">
+                            <div class="text-center">
+                                <div class="text-center px-0 mx-0">
+                                    <div class="d-inline-block px-3 bg-white">
+                                        <div class="round-btn bg-white d-inline-block p-1" :class="step == i ? 'border-primary' : 'border-light'">
+                                            <button @click="step = i" class="btn rounded" :class="step == i ? 'btn-primary mdi mdi-check-bold mdi-24px' : ''"></button>
+                                        </div>                     
+                                    </div>
+                                </div>
+                                <p class="text-center mt-2 px-0">{{ i + 1}}. {{ s}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+
+            <!-- DEVICES -->
+            <div class="col-lg-12 mx-0 my-5 py-5">
+                <div class="row mx-0 justify-content-center">
+                    <div class="col-lg-12 my-4">
+                        <h1 class="archivo-font text-center">Mail-in</h1>
+                        <h4 class="text-center font-weight-light text-light my-3">Enter the Delivery information</h4>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <h2 class="col-md-12 font-weight-bolder my-4">Enter your personal info</h2>
+                                                    <div class="col-md-6">
+                                                        <p class=" mb-1">First Name</p>
+                                                        <input type="text" name="" id="" class="w-100 bg-light bd-none p-3 mb-4">
+                                                    </div>                
+                                                    <div class="col-md-6">
+                                                        <p class=" mb-1">First Name</p>
+                                                        <input type="text" name="" id="" class="w-100 bg-light bd-none p-3 mb-4">
+                                                    </div>                
+                                                    <div class="col-md-6">
+                                                        <p class=" mb-1">Phone Number</p>
+                                                        <input type="text" name="" id="" class="w-100 bg-light bd-none p-3 mb-4">
+                                                    </div>                
+                                                    <div class="col-md-6">
+                                                        <p class=" mb-1">Email Address</p>
+                                                        <input type="text" name="" id="" class="w-100 bg-light bd-none p-3 mb-4">
+                                                    </div>                
+                                                    <h2 class="col-md-12 font-weight-bolder my-4">Enter your payment method</h2>
+                                                    <div class="col-md-6">
+                                                        <p class=" mb-1">Card Number</p>
+                                                        <input type="text" name="" id="" class="w-100 bg-light bd-none p-3 mb-4">
+                                                    </div>                
+                                                    <div class="col-md-6">
+                                                        <p class=" mb-1">Card Holder's Number</p>
+                                                        <input type="text" name="" id="" class="w-100 bg-light bd-none p-3 mb-4">
+                                                    </div>                
+                                                    <div class="col-md-3">
+                                                        <p class=" mb-1">Expiry Month</p>
+                                                        <input type="text" name="" id="" class="w-100 bg-light bd-none p-3 mb-4">
+                                                    </div>                
+                                                    <div class="col-md-3">
+                                                        <p class=" mb-1">Expiry Year</p>
+                                                        <input type="text" name="" id="" class="w-100 bg-light bd-none p-3 mb-4">
+                                                    </div>                
+                                                    <div class="col-md-6">
+                                                        <p class=" mb-1">CVV</p>
+                                                        <input type="text" name="" id="" class="w-100 bg-light bd-none p-3 mb-4">
+                                                    </div>                
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 bg-white mt-5 p-4">
+                                                <div class="row">
+                                                    <h2 class="col-md-12 font-weight-bolder my-4">Repair Details</h2>  
+                                                    <div class="shadow col-md-12 p-4">
+                                                        <div class="row">
+                                                            <div class="col-md-6"><p class="text-super-light">Service Type:</p></div>
+                                                            <div class="col-md-6"><p class="text-super-light">Device:</p></div>
+                                                            <div class="col-md-6"><p class="font-weight-bold">Mail-in</p></div>
+                                                            <div class="col-md-6"><p class="font-weight-bold">iPhone X</p></div>
+                                                            <div class="col-md-12 mt-4"><p class="text-super-light">Problem:</p></div>
+                                                            <div class="col-md-12"><p class="font-weight-bold">Broken Screen</p></div>
+                                                            <div class="col-md-12 mt-4"><p class="text-super-light">Total Payment:</p></div>
+                                                            <div class="col-md-12"><h4 class="font-weight-bolder text-primary">$43.00</h4></div>
+                                                        </div>
+                                                    </div>                                                  
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 shadow my-4 px-5 py-4">
+                                                <div class="row">
+                                                    <h4 class="col-md-12 font-weight-bolder my-4">Delivery From</h4>
+                                                    <div class="col-md-3 border-top border-bottom py-3">
+                                                        <div class=" border-right">
+                                                            <h6 class="text-primary font-weight-bold text-center mb-1">Name</h6>
+                                                            <h6 class="font-weight-bold text-center">John michel</h6>    
+                                                        </div>
+                                                    </div>                
+                                                    <div class="col-md-3 border-top border-bottom py-3">
+                                                        <div class="border-right">
+                                                            <h6 class="text-primary font-weight-bold text-center mb-1">Address</h6>
+                                                            <h6 class="font-weight-bold text-center mb-1">2463 Royal Ln. Mesa</h6>    
+                                                        </div>
+                                                    </div>                
+                                                    <div class="col-md-3 border-top border-bottom py-3">
+                                                        <div class="border-right">
+                                                            <h6 class="text-primary font-weight-bold text-center mb-1">Suite # (if any)</h6>
+                                                            <h6 class="font-weight-bold text-center mb-1">2345</h6>    
+                                                        </div>
+                                                    </div>                
+                                                    <div class="col-md-3 border-top border-bottom py-3">
+                                                        <div>
+                                                            <h6 class="text-primary font-weight-bold text-center mb-1">Phone No#</h6>
+                                                            <h6 class="font-weight-bold text-center mb-1">+13 4234 5689 34</h6>    
+                                                        </div>
+                                                    </div>  
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-6 mt-5 mx-auto">
+                                                        <div class="progress" style="height: 2px;">
+                                                            <div class="progress-bar" style="width:25%"></div>
+                                                        </div>                
+                                                    </div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                            </div>   
+
+                                            <div class="col-md-12 shadow my-4 px-5 py-4">
+                                                <div class="row">
+                                                    <h4 class="col-md-12 font-weight-bolder my-4">Delivery To</h4>
+                                                    <div class="col-md-3 border-top border-bottom py-3">
+                                                        <div class=" border-right">
+                                                            <h6 class="text-primary font-weight-bold text-center mb-1">Name</h6>
+                                                            <h6 class="font-weight-bold text-center">John michel</h6>    
+                                                        </div>
+                                                    </div>                
+                                                    <div class="col-md-3 border-top border-bottom py-3">
+                                                        <div class="border-right">
+                                                            <h6 class="text-primary font-weight-bold text-center mb-1">Address</h6>
+                                                            <h6 class="font-weight-bold text-center mb-1">2463 Royal Ln. Mesa</h6>    
+                                                        </div>
+                                                    </div>                
+                                                    <div class="col-md-3 border-top border-bottom py-3">
+                                                        <div class="border-right">
+                                                            <h6 class="text-primary font-weight-bold text-center mb-1">Suite # (if any)</h6>
+                                                            <h6 class="font-weight-bold text-center mb-1">2345</h6>    
+                                                        </div>
+                                                    </div>                
+                                                    <div class="col-md-3 border-top border-bottom py-3">
+                                                        <div>
+                                                            <h6 class="text-primary font-weight-bold text-center mb-1">Phone No#</h6>
+                                                            <h6 class="font-weight-bold text-center mb-1">+13 4234 5689 34</h6>    
+                                                        </div>
+                                                    </div>    
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-6 mt-5 mx-auto">
+                                                        <div class="progress" style="height: 2px;">
+                                                            <div class="progress-bar" style="width:25%"></div>
+                                                        </div>                
+                                                    </div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                            </div>  
+                                            
+                                            <div class="col-md-12 shadow my-4 px-5 py-4">
+                                                <div class="row">
+                                                    <h4 class="col-md-6 font-weight-bolder my-4">Product Package</h4>
+                                                    <h4 class="col-md-6 font-weight-bolder text-primary text-right my-4">Mobile $10</h4>
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-6 mt-4 mx-auto">
+                                                        <div class="progress" style="height: 2px;">
+                                                            <div class="progress-bar" style="width:25%"></div>
+                                                        </div>                
+                                                    </div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                            </div>   
+                                            
+                                        </div>
+                                    </div>
+                                                                    
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+        
+
+        
+                    <div class="col-md-12">
+                        <div class="row mx-0 my-5 py-5">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10 text-right">
+                                <a href="/delivery-info.html" class="btn pl-5 pr-5 pt-3 pb-3 border-radius mx-2"><span class="mdi mdi-arrow-left mx-2"></span> Back</a>
+                                <a href="/success.html" class="btn btn-primary pl-5 pr-5 pt-3 pb-3 border-radius mx-2">Submit</a>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+
+
+        </div>
+        
+        
+        <div class="container-fluid footer-bg pt-5 pb-5">
+            <div class="row mx-0 border-bottom-dark pb-5">
+                <div class="col-lg-1 d-none d-lg-block"></div>
+                <div class="col-lg-3 p-5 p-md-1">
+                    <h5 class="text-white mb-4"><strong>Contact us</strong></h5>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-email text-dark mr-4"></span>
+                        <span class="text-dark">support@fixthatdevice.com</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-phone text-dark mr-4"></span>
+                        <span class="text-dark">(704) 555-0127</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-instagram text-dark mr-4"></span>
+                        <span class="text-dark">Instagram</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-facebook text-dark mr-4"></span>
+                        <span class="text-dark">Facebook</span>
+                    </button>
+                </div>
+                <div class="col-lg-2 p-5 p-md-1 ">
+                    <h5 class="text-white mb-4"><strong>Start your repair</strong></h5>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Cellphone repiar</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Tablet repair</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Computer repair</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Feedback</span>
+                    </button>
+                </div>
+                <div class="col-lg-2 p-5 p-md-1 ">
+                    <h5 class="text-white mb-4"><strong>About FXD</strong></h5>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Repair</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Location</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Partnetship</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Support</span>
+                    </button>
+                </div>
+                <div class="col-lg-3 p-5 p-md-1 ">
+                    <h5 class="text-white mb-4"><strong>Get the newsletter</strong></h5>
+                    <div class="d-flex">
+                        <input type="text" name="" id="" class="w-100 pl-3 pr-3 dark-bg bd-none text-white" placeholder="Enter your email">
+                        <button class="btn btn-primary p-3 pl-4 pr-4 round-none bd-none">Send</button>
+                    </div>
+                </div>
+                <div class="col-lg-1 d-none d-lg-block"></div>
+            </div>
+            <div class="row mx-0 mt-5">
+                <div class="col-lg-1 d-none d-lg-block"></div>
+                <div class="col-lg-5"><p class="text-dark">Copyright © 2020. fixthatdevice. All rights reserved.</p></div>
+                <div class="col-lg-5 text-right">
+                    <a href="javascript:void(0)" class="btn text-white">Terms & Conditions</a>
+                    <a href="javascript:void(0)" class="btn text-white">Privacy Policy</a>
+                </div>
+                <div class="col-lg-1 d-none d-lg-block"></div>
+
+            </div>
+        </div>
+    </div>
+
+<script>
+new Vue({
+    el: '#v-container',
+    data () {
+        return {
+            step: 4,
+            steps: ["Device Setup", "Select Device", "Problem & Service", "Select Store", "Payment"],
+        }
+    },
+    methods: {  
+    },
+    mounted() {
+    }
+}) 
+</script>      
+</body>
+</html>

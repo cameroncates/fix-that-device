@@ -1,0 +1,197 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <title>Home Page</title>
+</head>
+<body>
+    <!-- Header -->
+    <div id="v-container" >
+        <div class="container-fluid">
+            <div class="pl-5 pr-5 pb-5">
+                <div class="row p-4 m-0 align-items-center">
+                    <div class="col-md-3">
+                        <img src="./assets/svg/logo-dark.svg" alt="logo" style="width: 100px;" >
+                    </div>
+                    <div class="col-md-9 text-right">
+                        <button class="btn">
+                            <img src="./assets/svg/search.svg" alt="search">
+                        </button>
+                        <button class="btn">Repairs</button>
+                        <button class="btn">About us</button>
+                        <button class="btn">Partnership</button>
+                        <button class="btn">Location</button>
+                        <button class="btn">Support</button>
+                        <button class="btn">Contact Us</button>
+                        <button class="btn btn-primary pl-5 pr-5 pt-2 pb-2 border-radius">Log in</button>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        
+        <div class="row mx-0">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 px-0">
+                <div class="row mx-0">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2 position-relative" v-for="(s, i) in steps">
+                        <div class="w-100 position-absolute border-top-2" style="top: 25%;"></div>
+                        <div class="text-center position-relative" style="z-index: 100;">
+                            <div class="text-center">
+                                <div class="text-center px-0 mx-0">
+                                    <div class="d-inline-block px-3 bg-white">
+                                        <div class="round-btn bg-white d-inline-block p-1" :class="step == i ? 'border-primary' : 'border-light'">
+                                            <button @click="step = i" class="btn rounded" :class="step == i ? 'btn-primary mdi mdi-check-bold mdi-24px' : ''"></button>
+                                        </div>                     
+                                    </div>
+                                </div>
+                                <p class="text-center mt-2 px-0">{{ i + 1}}. {{ s}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+
+            <!-- DEVICES -->
+            <div class="col-md-12 mx-0 my-5 py-5">
+                <div class="row mx-0 justify-content-center">
+                    <div class="col-md-12 my-5">
+                        <h1 class="archivo-font text-center">What can we offer you?</h1>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3" v-for="(offer, i) in offers">
+                        <a @click="active = i"  href="javascript:void(0)">
+                            <div :class="active == i ? 'active-primary' : ''" class="card-shadow mx-auto text-center p-5 transition">
+                                <img :src="offer.path + ( active == i ? offer.img = offer.img1 : offer.img = offer.img2)" alt="" class="transition">
+                                <h4 class="font-weight-bold text-black text-center mt-5 pt-5 border-top w-75 mx-auto transition">{{ offer.title }}</h4>
+                            </div>    
+                        </a>
+                    </div>
+                    <div class="col-md-2"></div>  
+                    <div class="col-md-12">
+                        <div class="row mx-0 my-5 py-5">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-9 text-right">
+                                <button class="btn pl-5 pr-5 pt-3 pb-3 border-radius mx-2"><span class="mdi mdi-arrow-left mx-2"></span> Back</button>
+                                <a href="/select-device.html" class="btn btn-primary pl-5 pr-5 pt-3 pb-3 border-radius mx-2">Next</a>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+
+                    </div>  
+                </div>
+            </div>
+
+        </div>
+        
+        
+        <div class="container-fluid footer-bg pt-5 pb-5">
+            <div class="row mx-0 border-bottom-dark pb-5">
+                <div class="col-lg-1 d-none d-lg-block"></div>
+                <div class="col-lg-3 p-5 p-md-1">
+                    <h5 class="text-white mb-4"><strong>Contact us</strong></h5>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-email text-dark mr-4"></span>
+                        <span class="text-dark">support@fixthatdevice.com</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-phone text-dark mr-4"></span>
+                        <span class="text-dark">(704) 555-0127</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-instagram text-dark mr-4"></span>
+                        <span class="text-dark">Instagram</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-facebook text-dark mr-4"></span>
+                        <span class="text-dark">Facebook</span>
+                    </button>
+                </div>
+                <div class="col-lg-2 p-5 p-md-1 ">
+                    <h5 class="text-white mb-4"><strong>Start your repair</strong></h5>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Cellphone repiar</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Tablet repair</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Computer repair</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Feedback</span>
+                    </button>
+                </div>
+                <div class="col-lg-2 p-5 p-md-1 ">
+                    <h5 class="text-white mb-4"><strong>About FXD</strong></h5>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Repair</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Location</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Partnetship</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Support</span>
+                    </button>
+                </div>
+                <div class="col-lg-3 p-5 p-md-1 ">
+                    <h5 class="text-white mb-4"><strong>Get the newsletter</strong></h5>
+                    <div class="d-flex">
+                        <input type="text" name="" id="" class="w-100 pl-3 pr-3 dark-bg bd-none text-white" placeholder="Enter your email">
+                        <button class="btn btn-primary p-3 pl-4 pr-4 round-none bd-none">Send</button>
+                    </div>
+                </div>
+                <div class="col-lg-1 d-none d-lg-block"></div>
+            </div>
+            <div class="row mx-0 mt-5">
+                <div class="col-lg-1 d-none d-lg-block"></div>
+                <div class="col-lg-5"><p class="text-dark">Copyright © 2020. fixthatdevice. All rights reserved.</p></div>
+                <div class="col-lg-5 text-right">
+                    <a href="javascript:void(0)" class="btn text-white">Terms & Conditions</a>
+                    <a href="javascript:void(0)" class="btn text-white">Privacy Policy</a>
+                </div>
+                <div class="col-lg-1 d-none d-lg-block"></div>
+
+            </div>
+        </div>
+    </div>
+
+<script>
+new Vue({
+    el: '#v-container',
+    data () {
+        return {
+            active: -1,
+            step: 0,
+            steps: ["Device Setup", "Select Device", "Problem & Service", "Select Store", "Payment"],
+            offers: [
+                { title: "Cell Phone", path: "./assets/svg/", img:"smartphone-2.svg", img1: "smartphone-1.svg", img2: "smartphone-2.svg"},
+                { title: "Tablet", path: "./assets/svg/", img:"tablet-2.svg", img1: "tablet-1.svg", img2: "tablet-2.svg"},
+                { title: "Computer", path: "./assets/svg/", img:"computer-2.svg", img1: "computer-1.svg", img2: "computer-2.svg"},
+            ],
+        }
+    },
+    methods: {  
+    },
+    mounted() {
+    }
+}) 
+</script>      
+</body>
+</html>

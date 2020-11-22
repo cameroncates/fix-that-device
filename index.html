@@ -1,0 +1,347 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <title>Home Page</title>
+</head>
+<body>
+    <!-- Header -->
+    <div id="v-container" >
+        <div class="container-fluid pt-3 pr-2 pl-5">
+            <div class="shadow pl-5 pr-5 round-bottom-left pb-5">
+                <div class="row p-4 m-0 align-items-center">
+                    <div class="col-md-3">
+                        <img src="./assets/svg/logo-dark.svg" alt="logo" style="width: 100px;" >
+                    </div>
+                    <div class="col-md-9 text-right">
+                        <button class="btn">
+                            <img src="./assets/svg/search.svg" alt="search">
+                        </button>
+                        <button class="btn">Repairs</button>
+                        <button class="btn">About us</button>
+                        <button class="btn">Partnership</button>
+                        <button class="btn">Location</button>
+                        <button class="btn">Support</button>
+                        <button class="btn">Contact Us</button>
+                        <a href="/login.html" class="btn btn-primary pl-5 pr-5 pt-2 pb-2 border-radius">Log in</a>
+                    </div>
+                </div>    
+                <div class="row mt-5">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">
+                        <h1 class="archivo-font font-100">
+                            <span class="position-relative">
+                                <img src="./assets/svg/text-rect.svg" class="position-absolute" style="bottom: 0px;">
+                                <span class="text-primary archivo-font font-100 position-relative" style="z-index: 100;">Here</span>
+                            </span> 
+                            when you
+                            <p class="position-relative d-inline-block p-0 m-0">
+                                <img src="./assets/svg/text-rect.svg" class="position-absolute" alt="" style="bottom: 0px;">
+                                <span class="text-primary archivo-font font-100 position-relative" style="z-index: 100;">need</span>
+                            </p> 
+                            us
+                        </h1>
+                        <p class="small text-light mt-5 mb-5">
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                            officia consequat duis enim velit mollit. Exercitation veniam consequat sunt 
+                            nostrud amet.                        
+                        </p>
+                        <button class="btn btn-primary pl-5 pr-5 d-flex align-items-center drop-shadow border-radius">
+                            <strong>Repair Now</strong> 
+                            <span class="mdi mdi-arrow-right mdi-24px ml-4"></span>
+                        </button>
+                    </div>
+                    <div class="col-md-6 flex-shrink-0 position-relative">
+                        <div class="mockup"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mx-0 my-5 py-5">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 px-0">
+                    <div class="row mx-0">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2 px-0 position-relative" v-for="(s, i) in steps">
+                            <div class="w-100 position-absolute border-top-2 px-0 mx-0" style="top: 25%;"></div>
+                            <div class="text-center position-relative" style="z-index: 100;">
+                                <div class="text-center">
+                                    <div class="text-center px-0 mx-0">
+                                        <div class="d-inline-block px-3 bg-white">
+                                            <div class="round-btn bg-white d-inline-block p-1" :class="step == i ? 'border-primary' : 'border-light'">
+                                                <button @click="step = i" class="btn rounded" :class="step == i ? 'btn-primary mdi mdi-check-bold mdi-24px' : ''"></button>
+                                            </div>                     
+                                        </div>
+                                    </div>
+                                    <p class="text-center mt-2 px-0">{{ i + 1}}. {{ s}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>    
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row mx-0 my-5 position-relative px-0">
+                <div class="position-absolute" style="top: 0px; left: 0px; z-index: -100;">
+                    <img src="./assets/svg/bullets.svg" alt="">
+                </div>
+                <h2 class="col-md-12 archivo-font text-center mb-5 mt-5">What can we offer you?</h2>
+                <div class="row m-0 justify-content-center col-md-12 position-relative">
+                    <div class="col-lg-4 p-4 bg-white" v-for="(offer, i) in offers">
+                        <a href="/select-device.html">
+                            <div class="card-shadow mx-auto text-center p-5 hov-primary transition" @mouseover="offer.img = offer.img1" @mouseleave="offer.img = offer.img2">
+                                <img :src="offer.path + offer.img" alt="" class="transition">
+                                <h4 class="font-weight-bold text-center mt-5 pt-5 border-top w-75 mx-auto transition text-black">{{ offer.title }}</h4>
+                            </div>    
+                        </a>
+                    </div>                
+                </div>
+                <div class="col-md-12 text-right p-5">
+                    <a href="/device-setup.html" class="btn btn-primary pl-5 pr-5 pt-2 pb-2 drop-shadow border-radius">Next</a>
+                </div>
+            </div>
+        </div>   
+        
+        <div class="container-fluid">
+            <div class="row mx-0 my-5 position-relative px-0">
+                <div class="position-absolute" style="top: 0px; right: 0px; z-index: -100;">
+                    <img src="./assets/svg/bullets.svg" alt="">
+                </div>
+                <h2 class="col-md-12 archivo-font text-center mb-5 mt-5">About Us</h2>
+                <div class="row col-md-12 pt-5 mx-0">
+                    <div class="col-md-12 col-lg-1 d-none d-md-block"></div>
+                    <div class="col-md-12 col-lg-4 pr-lg-5">
+                        <img src="./assets/images/aboutus_image.png" alt="" width="100%">
+                        <div class="col-md-12 text-center mt-4">
+                            <button class="btn btn-primary drop-shadow pl-5 pr-5 border-radius">More about us</button>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pl-0 pl-lg-5 mt-5 mt-lg-0">
+                        <p class="mb-5">At Fixthatdevice we’re obsessed with gadgets and gizmos. We’re   the  folks standing in line on launch day waiting for the latest smartphone  or  gaming console. We love all things tech and we’re experts at what we do.</p>
+                        <p class="mb-5">Fixthatdevice fixes electronic devices (it’s in our name after all). From the classic phone drop in the parking lot to the tablet in the toilet. We’ve seen it all. We understand how traumatic it is when you break your favorite devices and we want you to feel better the moment you walk in.</p>
+                        <p>We’re not overly sentimental, but we do what we do because we care about people and  their tech. That’s why Fixthatdevice works,we put our customers above anything else. Of course,we love  fixing cracked screens and broken charge ports, but we get our satisfaction from helping out folks who lost their connection to the outside world.</p>                        
+                    </div>
+                    <div class="col-md-12 d-none d-lg-block col-lg-1"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container-fluid bg-light mb-5">
+            <div class="row mx-0 my-5 position-relative px-0">
+                <h2 class="col-md-12 archivo-font text-center mb-5 mt-5">Our Customers</h2>
+                <div class="row m-0 justify-content-center col-md-12 position-relative">
+                    <div class="col-lg-4 p-4" v-for="(customer, i) in customers.slice(index, index + 3)">
+                        <div class="mx-auto bg-white text-center p-5">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button class="btn btn-primary mdi mdi-format-quote-open mdi-36px round-top-left"></button>
+                                </div>
+                                <div class="col-md-10 pl-md-5 pl-0 pt-4 pt-md-0">
+                                    <h5 class="font-weight-bold">{{ customer.name }}</h5>
+                                    <p class="text-super-light mb-0">{{ customer.state }}</p>
+                                    <div>
+                                        <button v-for="(star, j) in 5" :class="customer.rating > j ? 'text-warning' : 'text-super-light'" class="mdi mdi-star btn p-0 pr-1"></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mt-5">
+                                    <p class="small">{{ customer.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+                <div class="col-md-12 text-center p-5" v-if="totalReviews > 3">
+                    <button @click="index=i" v-for="(bullet, i) in (Math.round(totalReviews/3))" class="btn p-0 pr-1 mdi mdi-circle-medium" :class="i==index ? 'text-primary' : 'text-super-light'"></button>
+                </div>
+            </div>            
+        </div>
+
+        <div class="container-fluid bg-light">
+            <div class="row mx-0 my-5 position-relative px-0">
+                <div class="row col-md-12 mx-0">
+                    <div class="col-md-12 col-lg-1 d-none d-lg-block"></div>
+                    <div class="col-md-12 col-lg-5 pl-5 mt-5 mt-lg-0 p-5 align-self-center">
+                        <h1 class="archivo-font mb-5">Get in touch</h1>
+                        <p class="mb-5">Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt 
+                            qui esse pariatur duis deserunt mollit dolore cillum minim 
+                            tempor enim. Elit aute irure tempor cupidatat incididunt sint 
+                            deserunt ut voluptate aute id deserunt nisi.</p>
+                        <div class="col-md-12 mt-5">
+                            <button class="btn btn-primary drop-shadow pl-5 pr-5 border-radius">Contact us</button>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-5 position-relative p-0 align-self-center">
+                        <div class="d-flex align-items-center">
+                            <img src="./assets/images/contactus_image.png" width="100%">
+                        </div>
+                        <div class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center p-5" style="top:0px; left:0px;">
+                            <div class="row align-items-center position-relative">
+                                <div class="col-1 d-none d-lg-block"></div>
+                                <div class="col-lg-3 col-4 p-0 text-center">
+                                    <img src="./assets/images/call_icon.png" alt="" class="w-100">
+                                </div>
+                                <div class="col-lg-4 col-4 px-0 text-center">
+                                    <img src="./assets/images/email_icon.png" alt="" class="w-100" style="transform: scale(1.25);">
+                                </div>
+                                <div class="col-lg-3 col-4 p-0 text-center">
+                                    <img src="./assets/images/website_icon.png" alt="" class="w-100">
+                                </div>
+                                <div class="col-1 d-none d-lg-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-1 d-none d-lg-block"></div>
+                </div>
+            </div>
+
+        </div>      
+        
+        <div class="container-fluid px-0 mx-0">
+            <div class="row mx-0 my-5 position-relative px-0">
+                <div class="position-absolute" style="top: 0px; right: 0px; z-index: -100;">
+                    <img src="./assets/svg/bullets.svg" alt="">
+                </div>
+                <div class="row col-md-12 mx-0 mt-5">
+                    <div class="col-lg-1 d-none d-lg-block"></div>
+                    <div class="col-md-12 col-lg-10 bg-primary pt-5 pb-5 position-relative">
+                        <img src="./assets/svg/bullets-2.svg" alt="" class="position-absolute" style="top: 10px; left: 10px;">
+                        <img src="./assets/svg/rect-1.svg" alt="" class="position-absolute" style="bottom: 10px; right: 10px;">
+                        <img src="./assets/svg/rect-2.svg" alt="" class="position-absolute" style="bottom: 10px; right: 10px;">
+                        <h2 class="text-white archivo-font text-center mb-5 mt-5">We are waiting for you!</h2>
+                        <p class="w-50 mx-auto text-white text-center">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis
+                            enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+                        <div class="w-100 text-center">
+                            <button class="btn pl-5 pr-5 bg-white text-primary mt-5 mb-5">Get started</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 d-none d-lg-block"></div>
+                </div>
+            </div>
+        </div>       
+        
+        <div class="container-fluid footer-bg pt-5 pb-5">
+            <div class="row mx-0 border-bottom-dark pb-5">
+                <div class="col-lg-1 d-none d-lg-block"></div>
+                <div class="col-lg-3 p-5 p-md-1">
+                    <h5 class="text-white mb-4"><strong>Contact us</strong></h5>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-email text-dark mr-4"></span>
+                        <span class="text-dark">support@fixthatdevice.com</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-phone text-dark mr-4"></span>
+                        <span class="text-dark">(704) 555-0127</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-instagram text-dark mr-4"></span>
+                        <span class="text-dark">Instagram</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="mdi mdi-facebook text-dark mr-4"></span>
+                        <span class="text-dark">Facebook</span>
+                    </button>
+                </div>
+                <div class="col-lg-2 p-5 p-md-1 ">
+                    <h5 class="text-white mb-4"><strong>Start your repair</strong></h5>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Cellphone repiar</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Tablet repair</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Computer repair</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Feedback</span>
+                    </button>
+                </div>
+                <div class="col-lg-2 p-5 p-md-1 ">
+                    <h5 class="text-white mb-4"><strong>About FXD</strong></h5>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Repair</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Location</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Partnetship</span>
+                    </button>
+                    <button class="btn btn-block text-left">
+                        <span class="text-dark">Support</span>
+                    </button>
+                </div>
+                <div class="col-lg-3 p-5 p-md-1 ">
+                    <h5 class="text-white mb-4"><strong>Get the newsletter</strong></h5>
+                    <div class="d-flex">
+                        <input type="text" name="" id="" class="w-100 pl-3 pr-3 dark-bg bd-none text-white" placeholder="Enter your email">
+                        <button class="btn btn-primary p-3 pl-4 pr-4 round-none bd-none">Send</button>
+                    </div>
+                </div>
+                <div class="col-lg-1 d-none d-lg-block"></div>
+            </div>
+            <div class="row mx-0 mt-5">
+                <div class="col-lg-1 d-none d-lg-block"></div>
+                <div class="col-lg-5"><p class="text-dark">Copyright © 2020. fixthatdevice. All rights reserved.</p></div>
+                <div class="col-lg-5 text-right">
+                    <a href="javascript:void(0)" class="btn text-white">Terms & Conditions</a>
+                    <a href="javascript:void(0)" class="btn text-white">Privacy Policy</a>
+                </div>
+                <div class="col-lg-1 d-none d-lg-block"></div>
+
+            </div>
+        </div>
+    </div>
+
+<script>
+new Vue({
+    el: '#v-container',
+    data () {
+        return {
+            step: 0,
+            steps: ["Device Setup", "Select Device", "Problem & Service", "Select Store", "Payment"],
+            index: 0,
+            offers: [
+                { title: "Cell Phone", path: "./assets/svg/", img:"smartphone-2.svg", img1: "smartphone-1.svg", img2: "smartphone-2.svg"},
+                { title: "Tablet", path: "./assets/svg/", img:"tablet-2.svg", img1: "tablet-1.svg", img2: "tablet-2.svg"},
+                { title: "Computer", path: "./assets/svg/", img:"computer-2.svg", img1: "computer-1.svg", img2: "computer-2.svg"},
+            ],
+            totalReviews: 0,
+            customers: [
+                { name: "Esther Howard", state: "Napverille", rating: 4, description: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."},
+                { name: "Esther Howard", state: "Napverille", rating: 4, description: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."},
+                { name: "Esther Howard", state: "Napverille", rating: 4, description: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."},
+                { name: "Esther Howard", state: "Napverille", rating: 4, description: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."},
+                { name: "Esther Howard", state: "Napverille", rating: 4, description: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."},
+                { name: "Esther Howard", state: "Napverille", rating: 4, description: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."},
+                { name: "Esther Howard", state: "Napverille", rating: 4, description: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."},
+                { name: "Esther Howard", state: "Napverille", rating: 4, description: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."},
+                { name: "Esther Howard", state: "Napverille", rating: 4, description: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."},
+            ]
+        }
+    },
+    methods: {  
+    },
+    mounted() {
+        this.totalReviews = this.customers.length
+    }
+}) 
+</script>      
+</body>
+</html>
